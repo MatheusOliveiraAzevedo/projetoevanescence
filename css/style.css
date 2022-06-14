@@ -58,29 +58,31 @@
 }
 
 .tudo {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	justify-items: center;
 	background: linear-gradient(#363636, #C0C0C0);
 }
 
 .corpo-site {
-	display: flex;
+	display: grid;
 	width: 1080px;
-	justify-content: space-around;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
+	justify-items: center;
 
 }
 
 .resumo-banda {
 	display: flex;
 	flex-direction: column;
-	width: 45%;
+	width: 50vh;
 	/*flex-grow: 1;*/
 	padding: 6px;
 	border: 1px solid black;
 	border-radius: 10px;
 	background: #C0C0C0;
 	box-shadow: 5px 5px 15px #000000;
+	grid-column: span 1;
 
 }
 
@@ -91,8 +93,7 @@
 }
 
 .resumo-banda img {
-	/*width: 486px;*/
-	width: auto;
+	width: 50vh;
 }
 
 .resumo-banda a {
@@ -109,9 +110,8 @@
 	margin: 10px;
 	padding: 15px;
 	align-self: center;
-	color: #black;
+	color: #000000;
 	font-size: 30px;
-	/*font-family: 'Evans Font', Arial, sans-serif;*/
 	font-family: 'IBM Plex Sans Condensed', sans-serif;
 	text-align: center;
 }
@@ -124,13 +124,14 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 45%;
+	width: 50vh;
 	/*flex-grow: 1;*/
 	padding: 6px;
 	border: 1px solid black;
 	border-radius: 10px;
 	background: #C0C0C0;
 	box-shadow: 5px 5px 15px #000000;
+	grid-column: span 1;
 }
 
 .resumo-integrantes:hover {
@@ -159,13 +160,6 @@
 	margin-bottom: 15px;
 }
 
-.video-video {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 1080px;
-}
-
 .box-video {
 	display: flex;
 	flex-direction: column;
@@ -175,8 +169,10 @@
 	background: #C0C0C0;
 	margin-top: 20px;
 	box-shadow: 5px 5px 15px #000000;
-	width: 95%;
+	width: 100vh;
 	align-items: center;
+	grid-column: span 2;
+	grid-row: span 1;
 }
 
 .box-video:hover {
@@ -186,13 +182,16 @@
 }
 
 .video {
-	width: 95%;
+	width: 100vh;
+	height: 50vh;
 }
 
 .albuns {
 	display: flex;
 	flex-direction: column-reverse;
 	flex-wrap: wrap;
+	grid-column: span 2;
+	grid-row: span 2;
 }
 
 .albuns li {
@@ -281,15 +280,15 @@
 }
 
 .lojas {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: space-around;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	 
 }
 
 .lojas li img {
 	width: 150px;
 	margin-top: 15px;
+	
 }
 
 .item-lojas {
@@ -299,11 +298,13 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	align-items: center;
-	color: #F5F5F5;
+	color: #696969;
 	border: 1px solid black;
 	border-radius: 5PX;
-	padding: 15px;
+	padding: 5px;
 	box-shadow: 15px 15px 30px #000000;
+	background: #C0C0C0;
+	margin: 20px 50px;
 }
 
 .item-lojas:hover {
@@ -323,10 +324,10 @@
 }
 
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1079px) {
 
 
-	.topo .menu .tudo .corpo-site .video-video .rodape {
+	.topo .menu .tudo .corpo-site .rodape {
 		width: 100%;
 	}
 
@@ -342,47 +343,78 @@
 	}
 
 	.corpo-site {
+		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		width: 95%;
+		width: 45vw;
+		align-items: center;
 	}
 
 	.resumo-banda {
-		width: 95%;
+		width: 90vw;
 	}
 
 	.resumo-banda img {
-		/*width: auto;*/
+		width: 85vw;
+		align-self: center;
 	}
 
 	.resumo-integrantes {
-		width: 93%;
+		width: 90vw;
 		margin-top: 10px;
 	}
 
 	.sobre-banda {
-		width: 95%;
+		width: 90vw;
 		float: none;
-	}
-
-	.sobre-banda img {
-		width: 100%;
-	}
-
-	.membros {
-		width: 93%;
-	}
-	.caixa-membros {
+		display: flex;
 		flex-direction: column;
 	}
 
-	.video-video {
-		width: 95%;
+	.sobre-banda img {
+		width: 85vw;
+		align-self: center;
+	}
+
+	.membros {
+		width: 90vw;
+	}
+	.caixa-membros {
+		flex-direction: row;
+	}
+
+	.box-video {
+		width: 90vw;
 	}
 
 	.video {
 		width: 95%;
 	}
+
+	.albuns {
+		width: 100vw;
+	}
+
+	.albuns li {
+		width: 80vw;
+		align-self: center;
+		justify-content: space-around;
+		/* padding: 2px; */
+		flex-direction: column;
+	}
+
+	.albuns li img {
+		width: 50%;
+	}
+
+	.comprar {
+		width: 42vh;
+	}
+	.lojas {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
 
 
 }
